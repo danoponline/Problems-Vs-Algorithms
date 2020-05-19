@@ -1,4 +1,6 @@
 def rotated_array_search(input_list, number):
+    
+    # Condition for corner case input
     if not isinstance(number,int):
         print("Invalid number input")
         return -1
