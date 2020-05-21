@@ -15,6 +15,9 @@ class RouteTrie:
         self.root = RouteTrieNode(root_handler)
         self.default_handler = default_handler # place holder for default handler string
 
+    # Average time-complexity to insert is O(n)
+    # Average space-complexity to insert is O(n)
+    # n is the number of node
     def insert(self, path_list, handler):
         current_node = self.root
         for word in path_list:
@@ -23,6 +26,9 @@ class RouteTrie:
         current_node.handler = handler
         return
 
+    # Average time-complexity to find is O(n)
+    # Average space-complexity to find is O(1)
+    # n is the number of node
     def find(self,path_list):
         current_node = self.root
         for word in path_list:
@@ -38,15 +44,23 @@ class Router:
     def __init__(self,root_handler,default_handler):
         self.route_trie = RouteTrie(root_handler,default_handler)
 
+    # Average time-complexity to add handler is O(n)
+    # Average space-complexity to add handler is O(n)
+    # n is the number of node
     def add_handler(self, path, handler):
         path_list = self.split_path(path)
         self.route_trie.insert(path_list,handler)
         
-
+    # Average time-complexity to look up is O(n)
+    # Average space-complexity to look up is O(1)
+    # n is the number of node
     def lookup(self,path):
         path_list = self.split_path(path)
         return self.route_trie.find(path_list)
 
+    # Average time-complexity to split is O(n)
+    # worst-case space-complexity to split is O(n)
+    # n is the number of node
     def split_path(self,path):
         output_list = list()
         string = ''
