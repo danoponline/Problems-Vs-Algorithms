@@ -99,3 +99,13 @@ print("Test 5: lookup for another handler")
 print(router.lookup("/etc/proc"))
 # Expected Output: Proc handler
 print("--------------------------------------\n")
+
+print("Test 6: lookup for not found handler")
+print(router.lookup("/etc"))
+# Expected Output: 404 page not found!
+print("--------------------------------------\n")
+
+print("Test 7: lookup for not found handler")
+print(router.lookup("/home/Tom"))
+# Expected Output: 404 page not found!
+print("--------------------------------------\n")
